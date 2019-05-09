@@ -5,19 +5,48 @@ using UnityEngine.UI;
 
 public class Circle : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int x;
+    public int y;
+
+    public static int tempx;
+    public static int tempy;
+
+    public static Ingredient ingredient;
+
     void Start()
     {
         CheckPosition(0, 0);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Operate(string o)
     {
-        
+        switch (o)
+        {
+            case "add":
+                x += tempx;
+                y += tempy;
+                break;
+            case "sub":
+                x -= tempx;
+                y -= tempy;
+                break;
+        }
     }
 
-    void CheckPosition(int x, int y)
+    public void GetPotion()
+    {
+        var c = CheckPosition(x, y);
+
+        if (c == null)
+        {
+
+        } else
+        {
+
+        }
+    }
+
+    CirclePart CheckPosition(int x, int y)
     {
         if (x == 0 && y == 0)
         {
@@ -31,8 +60,10 @@ public class Circle : MonoBehaviour
         {
             if (g.sprite.texture.GetPixel(x + g.sprite.texture.height * g.GetComponent<CirclePart>().num, y).a != 0)
             {
-                g.gameObject.SetActive(false);
+                return g.GetComponent<CirclePart>();
             }
         }
+
+        return null;
     }
 }
