@@ -8,11 +8,18 @@ public class ShopInventory : MonoBehaviour
     public TMP_InputField search;
 
     [SerializeField]
-    Card[] cards;
+    ShopCard[] cards;
+
+    public ShopCard shop_card;
 
     void Start()
     {
-        cards = GetComponentsInChildren<Card>();
+        cards = GetComponentsInChildren<ShopCard>();
+
+        foreach (ShopCard c in cards)
+        {
+            c.shopinventory = this;
+        }
 
         UpdateInventory();
     }
@@ -28,7 +35,7 @@ public class ShopInventory : MonoBehaviour
 
         foreach (Ingredient i in Manager.ingredients)
         {
-            if (i.name.Substring(0, search.text.Length) == search.text)
+            if (i.name.Contains(search.text) || i.name.ToLower().Contains(search.text))
             {
                 ingredients.Add(i);
 

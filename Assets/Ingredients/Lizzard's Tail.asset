@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72ece99c0ecbd243be71fae856e7179, type: 3}
+  m_Name: Lizzard's Tail
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 9d873395ee80b7446a325c59de689e86, type: 3}
+  name: Lizzard's Tail
+  rareity: 0.6
+  potentcy: 12
+  currency: GP
+  cost: 1
+  count: 0
+  Fixed: 0
+  x: 1
+  y: 12
+  notex: 0
+  notey: 0

@@ -15,10 +15,12 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 8aeaf2302079fcd4f928f9b2c6561728, type: 3}
   name: Nightshade
   rareity: 0.7
-  currency: 2
+  potentcy: 12
+  currency: GP
   cost: 10
   count: 0
-  x: 0
-  y: 0
+  Fixed: 0
+  x: -5
+  y: -11
   notex: 0
   notey: 0

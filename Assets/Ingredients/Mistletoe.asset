@@ -15,7 +15,12 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 6e27c1a4e38135c4c85febf1143f7d0c, type: 3}
   name: Mistletoe
   rareity: 0.5
-  currency: 2
+  potentcy: 7
+  currency: GP
   cost: 5
-  x: 0
-  y: 0
+  count: 0
+  Fixed: 0
+  x: -7
+  y: 1
+  notex: 0
+  notey: 0

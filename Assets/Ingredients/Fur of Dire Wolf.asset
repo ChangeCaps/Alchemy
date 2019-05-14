@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72ece99c0ecbd243be71fae856e7179, type: 3}
+  m_Name: Fur of Dire Wolf
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 5831c861e8d0a8c41b1517d4baff7e05, type: 3}
+  name: Fur of Dire Wolf
+  rareity: 0.9
+  potentcy: 17
+  currency: GP
+  cost: 75
+  count: 0
+  Fixed: 0
+  x: -9
+  y: 14
+  notex: 0
+  notey: 0
