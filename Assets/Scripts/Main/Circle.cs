@@ -124,6 +124,7 @@ public class Circle : MonoBehaviour
     public void AddPotion()
     {
         potion.name = potion_name.text;
+        potion_name.text = "";
 
         Manager.potions.Add(potion);
     }
@@ -160,6 +161,14 @@ public class Circle : MonoBehaviour
                 potion.type = c.gameObject.name;
                 potion.info = c.gameObject.name + " " + c.potentcy + " " + c.name;
             }
+
+            x = 0;
+            y = 0;
+
+            notex = 0;
+            notey = 0;
+
+            DrawHistory();
         }
     }
 
