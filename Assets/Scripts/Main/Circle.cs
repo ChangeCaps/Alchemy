@@ -6,13 +6,13 @@ using TMPro;
 
 public class Circle : MonoBehaviour
 {
-    public int x;
-    public int y;
+    public static int x;
+    public static int y;
 
-    public int notex;
-    public int notey;
+    public static int notex;
+    public static int notey;
 
-    int _ingredients_left = 1;
+    static int _ingredients_left = 1;
     public int ingredients_left
     {
         get { return _ingredients_left; }
@@ -37,18 +37,25 @@ public class Circle : MonoBehaviour
     public PixelLineRenderer plr;
 
     [SerializeField]
-    List<int> x_history = new List<int>();
+    static List<int> x_history = new List<int>();
     [SerializeField]
-    List<int> y_history = new List<int>();
+    static List<int> y_history = new List<int>();
 
     Potion potion;
 
     void Start()
     {
-        ingredients_left = Mathf.FloorToInt((Manager.level + 1) / 2);
+        ingredients_left = ingredients_left;
+        ingredient = null;
+        selected = false;
 
-        x_history.Add(0);
-        y_history.Add(0);
+        if (x_history.Count == 0)
+        {
+            ingredients_left = Mathf.FloorToInt((Manager.level + 1) / 2);
+
+            x_history.Add(0);
+            y_history.Add(0);
+        }
 
         plr.DrawLines(x_history, y_history);
     }
