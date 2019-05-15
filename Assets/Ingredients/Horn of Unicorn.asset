@@ -18,7 +18,7 @@ MonoBehaviour:
   potentcy: 30
   currency: GP
   cost: 300
-  count: 0
+  count: 4
   Fixed: 0
   x: 21
   y: -22

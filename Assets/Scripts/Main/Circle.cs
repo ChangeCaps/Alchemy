@@ -67,6 +67,11 @@ public class Circle : MonoBehaviour
         }
     }
 
+    public void DrawHistory()
+    {
+        plr.DrawLines(x_history, y_history);
+    }
+
     public void Operate(string o)
     {
         

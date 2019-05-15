@@ -72,6 +72,9 @@
     <Compile Include="Assets\Scripts\Misc\MenuHider.cs" />
     <Compile Include="Assets\Scripts\Misc\PixelLineRenderer.cs" />
     <Compile Include="Assets\Scripts\Misc\SceneLoader.cs" />
+    <Compile Include="Assets\Scripts\Notes\NoteCircle.cs" />
+    <Compile Include="Assets\Scripts\Notes\NoteManager.cs" />
+    <Compile Include="Assets\Scripts\Notes\SearchResultNote.cs" />
     <Compile Include="Assets\Scripts\Potions\PotionManager.cs" />
     <Compile Include="Assets\Scripts\Potions\SearchResultPotion.cs" />
     <Compile Include="Assets\Scripts\Scroll.cs" />

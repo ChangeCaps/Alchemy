@@ -8,4 +8,12 @@ public class SceneLoader : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(s);
     }
+
+    public void NewCampain()
+    {
+        Manager.new_campain = true;
+        Manager.instance = null;
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
+    }
 }

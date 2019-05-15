@@ -13,7 +13,7 @@ public class PixelLineRenderer : MonoBehaviour
 
     public Color32 color;
 
-    void Start()
+    void Awake()
     {
         img = GetComponent<RawImage>();
     }
@@ -29,13 +29,10 @@ public class PixelLineRenderer : MonoBehaviour
         for (int i = 0; i < X.Count; i++)
         {
             x.Add(X[i] + 60);
-            y.Add(Y[i] + 61);
+            y.Add(Y[i] + 59);
         }
 
         Texture2D t = new Texture2D(width, height, TextureFormat.ARGB32, false);
-
-        int xpos;
-        int ypos;
 
         for (int i = 0; i < width; i++)
             for (int j = 0; j < height; j++)
@@ -43,23 +40,36 @@ public class PixelLineRenderer : MonoBehaviour
 
         for (int line = 0; line < x.Count - 1; line++)
         {
-            xpos = x[line];
-            ypos = y[line];
+            int xdiff = x[line + 1] - x[line];
+            int ydiff = y[line + 1] - y[line];
 
-            int xdiff = x[line + 1] - xpos;
-            int ydiff = y[line + 1] - ypos;
-
-            if (xdiff > ydiff)
+            if (xdiff != 0 || ydiff != 0)
             {
-                for (int _x = xpos; _x != x[line + 1] + xdiff / Mathf.Abs(xdiff); _x += xdiff/Mathf.Abs(xdiff))
+                if (Mathf.Abs(xdiff) > Mathf.Abs(ydiff))
                 {
-                    t.SetPixel(_x, (int)((float)ydiff / (float)xdiff * ((float)_x - xpos)) + xpos, color);
+                    int sx = x[line] > x[line + 1] ? x[line + 1] : x[line];
+                    int sy = x[line] > x[line + 1] ? y[line + 1] : y[line];
+                    int ex = x[line] > x[line + 1] ? x[line] : x[line + 1];
+                    int ey = x[line] > x[line + 1] ? y[line] : y[line + 1];
+
+                    for (int _x = sx; _x <= ex; _x++)
+                    {
+                        t.SetPixel(_x, Mathf.RoundToInt((float)(ey - sy) / (float)(ex - sx) * ((float)_x - sx)) + sy, color);
+                    }
                 }
-            } else
-            {
-                for (int _y = ypos; _y != y[line + 1] + ydiff / Mathf.Abs(ydiff); _y += ydiff / Mathf.Abs(ydiff))
+                else
                 {
-                    t.SetPixel((int)((float)xdiff / (float)ydiff * ((float)_y - ypos)) + ypos, _y, color);
+                    int sy = y[line] > y[line + 1] ? y[line + 1] : y[line];
+                    int sx = y[line] > y[line + 1] ? x[line + 1] : x[line];
+                    int ey = y[line] > y[line + 1] ? y[line] : y[line + 1];
+                    int ex = y[line] > y[line + 1] ? x[line] : x[line + 1];
+
+                    ydiff = sy - ey;
+
+                    for (int _y = sy; _y <= ey; _y++)
+                    {
+                        t.SetPixel(Mathf.RoundToInt((float)(ex - sx) / (float)(ey - sy) * ((float)_y - sy)) + sx, _y, color);
+                    }
                 }
             }
         }

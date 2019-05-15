@@ -15,10 +15,10 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 47e43d55e1873d84f84209b5365c7f30, type: 3}
   name: Eye of Snake
   rareity: 0.8
-  potentcy: 20
+  potentcy: 17
   currency: GP
   cost: 25
-  count: 0
+  count: 7
   Fixed: 0
   x: 9
   y: -18

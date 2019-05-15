@@ -9,7 +9,7 @@ public class CirclePart : MonoBehaviour
     public int potentcy;
     public new int name;
 
-    private void Start()
+    private void Awake()
     {
         if (PlayerPrefs.GetInt("cpname" + num) == 0 || Manager.new_campain)
         {

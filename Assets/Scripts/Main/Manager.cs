@@ -26,38 +26,33 @@ public class Manager : MonoBehaviour
 
     public static List<Potion> potions = new List<Potion>();
 
-    [SerializeField]
-    bool NewCampain;
-
     public static bool new_campain;
 
-    public static int level = 2;
+    public static int level = 20;
 
     private void Awake()
     {
-        new_campain = NewCampain;
-
         if (instance == null)
         {
             ingredients = Ingredients;
 
             instance = this;
 
-            if (!NewCampain)
+            if (new_campain)
             {
                 LoadGame();
             }
 
             foreach (Ingredient i in ingredients)
             {
-                if (NewCampain)
+                if (new_campain)
                 {
                     i.count = 0;
                     i.notex = 0;
                     i.notey = 0;
                 }
 
-                if ((i.x == 0 && i.y == 0) || (NewCampain && !i.Fixed))
+                if ((i.x == 0 && i.y == 0) || (new_campain && !i.Fixed))
                 {
                     float a = Random.Range(0, 360);
 
@@ -71,13 +66,11 @@ public class Manager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(this);
-
-        new_campain = NewCampain;
     }
 
-    void Update()
+    private void Start()
     {
-        
+        new_campain = false;
     }
 
     void SaveGame()
